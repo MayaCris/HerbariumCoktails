@@ -3,8 +3,8 @@ package org.example.modelos;
 import java.util.List;
 
 public class Cocktail {
-    private String nombre;
-    private double precio;
+    private String name;
+    private double price;
     private List<String> ingredients;
     private double alcoholContent;
     private String glassType;
@@ -17,9 +17,9 @@ public class Cocktail {
     public Cocktail() {
     }
 
-    public Cocktail(String nombre, double precio, List<String> ingredients, double alcoholContent, String glassType, boolean isAlcoholic, String garnish, String preparationMethod, int servingSize) {
-        this.nombre = nombre;
-        this.precio = precio;
+    public Cocktail(String name, double price, List<String> ingredients, double alcoholContent, String glassType, boolean isAlcoholic, String garnish, String preparationMethod, int servingSize) {
+        this.name = name;
+        this.price = price;
         this.ingredients = ingredients;
         this.alcoholContent = alcoholContent;
         this.glassType = glassType;
@@ -29,20 +29,20 @@ public class Cocktail {
         this.servingSize = servingSize;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String nombre) {
+        this.name = nombre;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setPrice(double precio) {
+        this.price = precio;
     }
 
     public List<String> getIngredients() {
