@@ -2,9 +2,10 @@ package org.example.modelos;
 
 import java.util.List;
 
-public class Cocktail {
+public abstract class Cocktail {
     private String name;
-    private double price;
+    private double unitPrice;
+    private int quantity;
     private List<String> ingredients;
     private double alcoholContent;
     private String glassType;
@@ -14,35 +15,38 @@ public class Cocktail {
     private int servingSize;
 
 
+
     public Cocktail() {
     }
 
-    public Cocktail(String name, double price, List<String> ingredients, double alcoholContent, String glassType, boolean isAlcoholic, String garnish, String preparationMethod, int servingSize) {
+    public Cocktail(String name, double unitPrice, int quantity) {
         this.name = name;
-        this.price = price;
-        this.ingredients = ingredients;
-        this.alcoholContent = alcoholContent;
-        this.glassType = glassType;
-        this.isAlcoholic = isAlcoholic;
-        this.garnish = garnish;
-        this.preparationMethod = preparationMethod;
-        this.servingSize = servingSize;
+        this.unitPrice = unitPrice;
+        this.quantity = quantity;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String nombre) {
-        this.name = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public double getPrice() {
-        return price;
+    public double getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setPrice(double precio) {
-        this.price = precio;
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public List<String> getIngredients() {
@@ -100,4 +104,7 @@ public class Cocktail {
     public void setServingSize(int servingSize) {
         this.servingSize = servingSize;
     }
+
+    public abstract void calculatePriceSell();
+
 }
