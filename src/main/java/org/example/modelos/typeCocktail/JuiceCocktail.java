@@ -59,10 +59,10 @@ public class JuiceCocktail extends Cocktail {
         }
         double totalPrice = subtotalPrice - discount;
         System.out.println("");
-        System.out.println("Calculo del valor total de la venta:");
+        System.out.println("Cálculo del valor total de la venta:");
         System.out.println("");
         System.out.println("| Días para el vencimiento -> " + expirationDays);
-        System.out.println("| Cantidad -> " + this.getQuantity() +  " | cocktail -> " + this.getName() + " | Descuento -> $" + discount + " | Total precio -> $" + totalPrice + " |");
+        System.out.println("| Cantidad -> " + this.getQuantity() +  " | Cocktail -> " + this.getName() + " | Descuento -> $" + discount + " | Total precio -> $" + totalPrice + " |");
         System.out.println("-----------------------------------------------------------------------------------------------------------");
 
     }

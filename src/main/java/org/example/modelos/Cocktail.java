@@ -3,6 +3,7 @@ package org.example.modelos;
 import org.example.utils.RegexValidators;
 import java.util.List;
 
+
 public abstract class Cocktail {
     private String name;
     private double unitPrice;
@@ -15,17 +16,17 @@ public abstract class Cocktail {
     private String preparationMethod;
     private int servingSize;
 
-
-
+    // Constructors
     public Cocktail() {
     }
 
     public Cocktail(String name, double unitPrice, int quantity) {
-        this.name = name;
-        this.unitPrice = unitPrice;
-        this.quantity = quantity;
+        setName(name); // Use the setter to validate
+        setUnitPrice(unitPrice);
+        setQuantity(quantity);
     }
 
+    // Getters and Setters
     public String getName() {
         if (!RegexValidators.isValidName(name)) {
             throw new IllegalArgumentException("Invalid name format.");
@@ -34,6 +35,9 @@ public abstract class Cocktail {
     }
 
     public void setName(String name) {
+        if (!RegexValidators.isValidName(name)) {
+            throw new IllegalArgumentException("Invalid name format.");
+        }
         this.name = name;
     }
 
@@ -133,6 +137,6 @@ public abstract class Cocktail {
         this.servingSize = servingSize;
     }
 
+    // Abstract method
     public abstract void calculatePriceSell();
-
 }
