@@ -3,6 +3,8 @@ package org.example.modelos.typeCocktail;
 import org.example.modelos.Cocktail;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 
 public class JuiceCocktail extends Cocktail {
@@ -14,7 +16,7 @@ public class JuiceCocktail extends Cocktail {
 
     public JuiceCocktail(String name, double unitPrice, int quantity, String expirationDate) {
         super(name, unitPrice, quantity);
-        this.expirationDate = expirationDate;
+        this.setExpirationDate(expirationDate);
     }
 
     public String getExpirationDate() {
@@ -22,7 +24,16 @@ public class JuiceCocktail extends Cocktail {
     }
 
     public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
+        if (expirationDate == null || expirationDate.isEmpty()) {
+            throw new IllegalArgumentException("Expiration date cannot be null or empty");
+        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        try {
+            LocalDate.parse(expirationDate, formatter);
+            this.expirationDate = expirationDate;
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("Invalid date format. Expected format is YYYY-MM-DD");
+        }
     }
 
     @Override

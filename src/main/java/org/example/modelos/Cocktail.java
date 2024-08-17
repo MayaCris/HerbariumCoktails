@@ -1,5 +1,6 @@
 package org.example.modelos;
 
+import org.example.utils.RegexValidators;
 import java.util.List;
 
 public abstract class Cocktail {
@@ -26,6 +27,9 @@ public abstract class Cocktail {
     }
 
     public String getName() {
+        if (!RegexValidators.isValidName(name)) {
+            throw new IllegalArgumentException("Invalid name format.");
+        }
         return name;
     }
 
@@ -38,6 +42,9 @@ public abstract class Cocktail {
     }
 
     public void setUnitPrice(double unitPrice) {
+        if (unitPrice < 0) {
+            throw new IllegalArgumentException("Unit price cannot be negative.");
+        }
         this.unitPrice = unitPrice;
     }
 
@@ -46,6 +53,9 @@ public abstract class Cocktail {
     }
 
     public void setQuantity(int quantity) {
+        if (quantity < 0) {
+            throw new IllegalArgumentException("Quantity cannot be negative.");
+        }
         this.quantity = quantity;
     }
 
@@ -54,6 +64,9 @@ public abstract class Cocktail {
     }
 
     public void setIngredients(List<String> ingredients) {
+        if (ingredients == null || ingredients.isEmpty()) {
+            throw new IllegalArgumentException("Ingredients list cannot be null or empty.");
+        }
         this.ingredients = ingredients;
     }
 
@@ -62,6 +75,9 @@ public abstract class Cocktail {
     }
 
     public void setAlcoholContent(double alcoholContent) {
+        if (alcoholContent < 0) {
+            throw new IllegalArgumentException("Alcohol content cannot be negative.");
+        }
         this.alcoholContent = alcoholContent;
     }
 
@@ -70,6 +86,9 @@ public abstract class Cocktail {
     }
 
     public void setGlassType(String glassType) {
+        if (!RegexValidators.isValidGlassType(glassType)) {
+            throw new IllegalArgumentException("Invalid glass type format.");
+        }
         this.glassType = glassType;
     }
 
@@ -86,6 +105,9 @@ public abstract class Cocktail {
     }
 
     public void setGarnish(String garnish) {
+        if (!RegexValidators.isValidGarnish(garnish)) {
+            throw new IllegalArgumentException("Invalid garnish format.");
+        }
         this.garnish = garnish;
     }
 
@@ -94,6 +116,9 @@ public abstract class Cocktail {
     }
 
     public void setPreparationMethod(String preparationMethod) {
+        if (!RegexValidators.isValidPreparationMethod(preparationMethod)) {
+            throw new IllegalArgumentException("Invalid preparation method format.");
+        }
         this.preparationMethod = preparationMethod;
     }
 
@@ -102,6 +127,9 @@ public abstract class Cocktail {
     }
 
     public void setServingSize(int servingSize) {
+        if (servingSize <= 0) {
+            throw new IllegalArgumentException("Serving size must be positive.");
+        }
         this.servingSize = servingSize;
     }
 

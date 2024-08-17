@@ -10,7 +10,7 @@ public class AlcoholCocktail extends Cocktail {
 
     public AlcoholCocktail(String name, double unitPrice, int quantity, String type) {
         super(name, unitPrice, quantity);
-        this.type = type;
+        this.setType(type);
     }
 
     public String getType() {
@@ -18,6 +18,9 @@ public class AlcoholCocktail extends Cocktail {
     }
 
     public void setType(String type) {
+        if(!type.equals("Premium") && !type.equals("Base")){
+            throw new IllegalArgumentException("Type only can be Premium or Base");
+        }
         this.type = type;
     }
 
